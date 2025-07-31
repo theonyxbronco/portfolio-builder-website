@@ -9,8 +9,8 @@ interface WaitlistFormProps {
 }
 
 const WaitlistForm = ({ 
-  title = "Join the Beta Waitlist",
-  subtitle = "Be the first to experience the future of productivity"
+  title = "Join the Pro Waitlist",
+  subtitle = "Be the first to get access to all of our tools we're building for you."
 }: WaitlistFormProps) => {
   const [email, setEmail] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -24,7 +24,7 @@ const WaitlistForm = ({
     await new Promise(resolve => setTimeout(resolve, 1000));
     
     toast({
-      title: "Successfully joined waitlist!",
+      title: "Thank you for joining the waitlist!",
       description: "We'll notify you when beta access is available.",
     });
     
@@ -33,10 +33,10 @@ const WaitlistForm = ({
   };
 
   return (
-    <div className="bg-gradient-card p-8 rounded-lg shadow-elegant border">
+    <div className="p-8">
       <div className="text-center mb-6">
-        <h3 className="text-2xl font-bold mb-2">{title}</h3>
-        <p className="text-muted-foreground">{subtitle}</p>
+        <h3 className="text-5xl text-primary font-semibold mb-2">{title}</h3>
+        <p className="text-primary opacity-60 text-md font-light">{subtitle}</p>
       </div>
       
       <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
@@ -46,13 +46,14 @@ const WaitlistForm = ({
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
-          className="flex-1"
+          className="flex-1 py-6 px-6"
         />
         <Button 
           type="submit" 
-          variant="gradient" 
+          variant="default"
+          size="lg"
           disabled={isLoading}
-          className="sm:w-auto"
+          className="sm:w-auto text-md py-6 px-10"
         >
           {isLoading ? "Joining..." : "Join Waitlist"}
         </Button>

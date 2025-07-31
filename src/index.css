@@ -17,8 +17,10 @@ All colors MUST be HSL.
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 240 100% 62%;
-    --primary-foreground: 0 0% 100%;
+    --light: 0 0% 98%;
+
+    --primary: 240 2% 12%;
+    --primary-foreground: 0 0% 98%; 
     --primary-glow: 260 100% 80%;
 
     --secondary: 240 6% 10%;
@@ -39,12 +41,12 @@ All colors MUST be HSL.
 
     /* Beautiful gradients */
     --gradient-primary: linear-gradient(135deg, hsl(240 100% 62%), hsl(260 100% 80%));
-    --gradient-hero: linear-gradient(135deg, hsl(240 100% 62% / 0.1), hsl(260 100% 80% / 0.1));
+    --gradient-hero: linear-gradient(135deg, hsla(0, 0%, 58%, 0.1), hsla(0, 0%, 93%, 0.1));
     --gradient-card: linear-gradient(145deg, hsl(0 0% 100%), hsl(240 6% 98%));
     
     /* Shadows */
     --shadow-elegant: 0 10px 30px -10px hsl(240 100% 62% / 0.3);
-    --shadow-glow: 0 0 40px hsl(260 100% 80% / 0.4);
+    --shadow-glow: 0 0 40px hsla(0, 0%, 74%, 0.4);
     
     /* Transitions */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -66,6 +68,24 @@ All colors MUST be HSL.
     --sidebar-border: 220 13% 91%;
 
     --sidebar-ring: 217.2 91.2% 59.8%;
+    
+    /* Font families */
+    --font-sans: 'Geist', ui-sans-serif, system-ui, sans-serif;
+    --font-mono: 'Geist Mono', ui-monospace, SFMono-Regular, monospace;
+    
+    /* Glass effect variables */
+    --lg-bg-color: rgba(255, 255, 255, 0.25);
+    --lg-highlight: rgba(255, 255, 255, 0.75);
+    --lg-text: #ffffff;
+    --lg-hover-glow: rgba(255, 255, 255, 0.4);
+    --lg-red: #fb4268;
+    --lg-grey: #5b5b5b;
+  }
+
+  /* Parallax scroll effect */
+  .parallax-hero {
+    transform: translateZ(0);
+    will-change: transform;
   }
 
   .dark {
@@ -116,3 +136,40 @@ All colors MUST be HSL.
     @apply bg-background text-foreground;
   }
 }
+
+@layer components {
+  .glass-effect {
+    @apply relative flex font-semibold text-white cursor-pointer;
+    @apply bg-transparent rounded-full overflow-hidden;
+    @apply shadow-[0_6px_6px_rgba(0,0,0,0.2),0_0_20px_rgba(0,0,0,0.1)];
+  }
+  
+  .glass-card {
+    @apply relative flex font-semibold text-white cursor-pointer;
+    @apply bg-transparent rounded-[2rem] overflow-hidden;
+    @apply shadow-[0_6px_6px_rgba(0,0,0,0.2),0_0_20px_rgba(0,0,0,0.1)];
+  }
+  
+  .glass-button {
+    @apply relative flex font-semibold text-white cursor-pointer;
+    @apply bg-transparent rounded-[1rem] overflow-hidden;
+    @apply shadow-[0_4px_4px_rgba(0,0,0,0.2),0_0_15px_rgba(0,0,0,0.1)];
+  }
+  
+  .glass-layers {
+    @apply absolute inset-0 z-0 backdrop-blur-[0px] filter-[url(#lg-dist)] isolate;
+  }
+  
+  .glass-overlay {
+    @apply absolute inset-0 z-1 bg-[rgba(255,255,255,0.25)];
+  }
+  
+  .glass-specular {
+    @apply absolute inset-0 z-2 rounded-inherit overflow-hidden shadow-[inset_1px_1px_0_rgba(255,255,255,0.75),inset_0_0_5px_rgba(255,255,255,0.75)];
+  }
+  
+  .glass-content {
+    @apply relative z-3 flex items-center justify-center;
+  }
+}
+

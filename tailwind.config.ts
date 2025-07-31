@@ -102,6 +102,10 @@ export default {
 			},
 			transitionTimingFunction: {
 				'smooth': 'var(--transition-smooth)'
+			},
+			fontFamily: {
+				sans: ['var(--font-sans)'],
+				mono: ['var(--font-mono)'],
 			}
 		}
 	},

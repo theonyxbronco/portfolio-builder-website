@@ -3,34 +3,35 @@ import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import WaitlistForm from "@/components/WaitlistForm";
 import { Check } from "lucide-react";
+import { useParallax } from "@/hooks/use-parallax";
 
 const Pricing = () => {
   const plans = [
     {
       name: "Starter",
-      price: "5",
+      price: "0",
       period: "month",
       description: "Perfect for individuals getting started with productivity optimization",
       features: [
         "Up to 3 projects",
         "Basic analytics",
         "Email support",
-        "5GB storage",
+        "2GB storage",
         "Mobile app access",
         "Basic integrations"
       ],
       isPopular: false
     },
     {
-      name: "Professional",
-      price: "15",
+      name: "Student",
+      price: "6",
       period: "month",
-      description: "Ideal for small teams and growing businesses",
+      description: "Ideal for students growing their presense",
       features: [
         "Unlimited projects",
         "Advanced analytics",
         "Priority support",
-        "50GB storage",
+        "25GB storage",
         "Team collaboration",
         "All integrations",
         "Custom workflows",
@@ -39,13 +40,12 @@ const Pricing = () => {
       isPopular: true
     },
     {
-      name: "Enterprise",
-      price: "30",
+      name: "Pro",
+      price: "15",
       period: "month",
-      description: "Complete solution for large teams and organizations",
+      description: "Complete solution for professional creatives, or those who value organization",
       features: [
-        "Everything in Professional",
-        "Advanced security",
+        "Everything in Student",
         "Dedicated support",
         "Unlimited storage",
         "Custom branding",
@@ -58,22 +58,28 @@ const Pricing = () => {
     }
   ];
 
+  const parallaxOffset = useParallax(0.2);
+  const parallaxOffset2 = useParallax(0.15);
+
   return (
     <div className="min-h-screen bg-background py-20">
       <div className="container mx-auto px-4">
         {/* Header */}
-        <div className="text-center mb-16">
-          <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-primary bg-clip-text text-transparent">
-            Simple, Transparent Pricing
+        <div className="text-center mb-28">
+          <h1 className="text-5xl md:text-6xl font-semibold mb-3 bg-primary bg-clip-text text-transparent">
+            Pricing in Your Interest
           </h1>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Choose the perfect plan for your needs. All plans include our core features 
-            with no hidden fees or surprise charges.
+          <p className="text-xl text-primary font-regular opacity-60 max-w-3xl mx-auto">
+            Choose the perfect plan for your needs. We make sure you never have to put a thought into worrying about your portfolio again.
           </p>
         </div>
 
         {/* Pricing Cards */}
-        <div className="grid md:grid-cols-3 gap-8 mb-20 max-w-7xl mx-auto">
+        <div className="grid md:grid-cols-3 gap-8 mb-48 max-w-7xl mx-auto" 
+          style={{ 
+          transform: `translateY(${parallaxOffset}px)`,
+          willChange: 'transform'
+        }}>
           {plans.map((plan, index) => (
             <Card 
               key={index}
@@ -83,7 +89,7 @@ const Pricing = () => {
             >
               {plan.isPopular && (
                 <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                  <Badge className="bg-gradient-primary text-primary-foreground px-4 py-1">
+                  <Badge className="bg-primary text-white px-6 py-2">
                     Most Popular
                   </Badge>
                 </div>
@@ -92,13 +98,19 @@ const Pricing = () => {
               <CardHeader className="text-center p-8">
                 <h3 className="text-2xl font-bold mb-2">{plan.name}</h3>
                 <div className="mb-4">
-                  <span className="text-4xl font-bold">€{plan.price}</span>
-                  <span className="text-muted-foreground">/{plan.period}</span>
+                  {plan.price === "0" ? (
+                    <span className="text-4xl font-bold">Free</span>
+                  ) : (
+                    <>
+                      <span className="text-4xl font-bold">€{plan.price}</span>
+                      <span className="text-muted-foreground">/{plan.period}</span>
+                    </>
+                  )}
                 </div>
                 <p className="text-muted-foreground">{plan.description}</p>
               </CardHeader>
               
-              <CardContent className="p-8 pt-0">
+              <CardContent className="p-8 pt-0 flex flex-col justify-between flex-1 h-[400px]">
                 <ul className="space-y-3 mb-8">
                   {plan.features.map((feature, idx) => (
                     <li key={idx} className="flex items-center">
@@ -109,7 +121,7 @@ const Pricing = () => {
                 </ul>
                 
                 <Button 
-                  variant={plan.isPopular ? "gradient" : "outline"} 
+                  variant={plan.isPopular ? "default" : "outline"} 
                   className="w-full"
                   size="lg"
                 >
@@ -121,7 +133,11 @@ const Pricing = () => {
         </div>
 
         {/* FAQ Section */}
-        <div className="max-w-3xl mx-auto mb-20">
+        <div className="max-w-3xl mx-auto mb-80 mt-50" 
+          style={{ 
+          transform: `translateY(${parallaxOffset2}px)`,
+          willChange: 'transform'
+        }}>
           <h2 className="text-3xl font-bold text-center mb-12">Frequently Asked Questions</h2>
           <div className="space-y-6">
             <Card className="bg-gradient-card border-0 shadow-elegant">
@@ -148,9 +164,9 @@ const Pricing = () => {
         </div>
 
         {/* Beta Waitlist Section */}
-        <div className="max-w-4xl mx-auto">
+        <div className="md:py-20 pt-52 max-w-4xl mx-auto">
           <WaitlistForm 
-            title="Join the Beta Program"
+            title="Join the pro waitlist"
             subtitle="Get early access to all features at a special discounted rate"
           />
         </div>

@@ -7,16 +7,16 @@ const Navigation = () => {
   const isActive = (path: string) => location.pathname === path;
   
   return (
-    <nav className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container flex h-16 items-center justify-between">
-        <Link to="/" className="text-2xl font-bold bg-gradient-primary bg-clip-text text-transparent">
-          ProductName
+    <nav className="bg-[#FAFAFA]/80 backdrop-blur-[10px] shadow-md rounded-xl sticky top-[20px] z-50 w-auto m-[20px] py-5 px-10 border border-gray-200">
+      <div className=" flex items-center justify-between">
+        <Link to="/" className="text-2xl font-bold bg-primary bg-clip-text text-transparent">
+          PRODUCT
         </Link>
         
-        <div className="hidden md:flex items-center space-x-8">
+        <div className="hidden md:flex items-center space-x-20">
           <Link 
-            to="/" 
-            className={`text-sm font-medium transition-colors hover:text-primary ${
+            to="/"
+            className={`text-md font-light transition-colors hover:text-primary ${
               isActive('/') ? 'text-primary' : 'text-muted-foreground'
             }`}
           >
@@ -24,7 +24,7 @@ const Navigation = () => {
           </Link>
           <Link 
             to="/features" 
-            className={`text-sm font-medium transition-colors hover:text-primary ${
+            className={`text-md font-light transition-colors hover:text-primary ${
               isActive('/features') ? 'text-primary' : 'text-muted-foreground'
             }`}
           >
@@ -32,7 +32,7 @@ const Navigation = () => {
           </Link>
           <Link 
             to="/pricing" 
-            className={`text-sm font-medium transition-colors hover:text-primary ${
+            className={`text-md font-light transition-colors hover:text-primary ${
               isActive('/pricing') ? 'text-primary' : 'text-muted-foreground'
             }`}
           >
@@ -40,7 +40,7 @@ const Navigation = () => {
           </Link>
         </div>
         
-        <Button variant="gradient" size="sm">
+        <Button variant="default" size="lg" className="text-md">
           Sign Up
         </Button>
       </div>
