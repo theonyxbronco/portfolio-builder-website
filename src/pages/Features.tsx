@@ -7,11 +7,49 @@ import {
   ScanLine,         // Auto-organization (scanning/sorting)
   Palette,          // Portfolio Builder (creative)
   RefreshCw,        // Portfolio Upkeeper (updating/syncing)
-  Briefcase         // Career Opportunities
+  Briefcase,         // Career Opportunities
+  Eye,
+
 } from "lucide-react";
 
 const Features = () => {
   const features = [
+    {
+      icon: Palette,
+      title: "AI Portfolio Builder",
+      description: "With one click of a button, you can generate custom portfolio websites for projects you have selected to showcase. Each portfolio is uniquely created to your taste and vision",
+      badge: "TAKES < 5 MINUTES"
+    },
+    {
+      icon: Eye,
+      title: "Computer Vision Analysis",
+      description: "Our AI analyzes your moodboard images to extract colors, typography, layouts, and design patterns that perfectly match your aesthetic vision.",
+      badge: null
+    },
+    {
+      icon: Eye,
+      title: "Moodboard Intelligence",
+      description: "Upload inspiration images and watch AI understand your style preferences. No more choosing from generic templates - show us what you love.",
+      badge: null
+    },
+    {
+      icon: RefreshCw,
+      title: "Smart Showcase",
+      description: "Upload multiple projects with process and final images. AI understands your creative workflow and showcases it professionally with compelling case studies.",
+      badge: null
+    },
+    {
+      icon: RefreshCw,
+      title: "AI Chat Editor",
+      description: "Use our built-in AI chat to tweak and edit the your portfolio website. Whether its colours, icons, structure, or cute visuals, we love to see you make it your own.",
+      badge: null
+    },
+    {
+      icon: Briefcase,
+      title: "One-Click Web Deployment",
+      description: "Deploy instantly to Netlify with a custom subdomain. Your portfolio goes live in seconds with professional hosting and SSL certificates included.",
+      badge: null
+    },
     {
       icon: FolderKanban,
       title: "Projects Management",
@@ -28,26 +66,9 @@ const Features = () => {
       icon: ScanLine,
       title: "Asset Auto-Organization",
       description: "Our platform automatically understands your files, sifts through them, and organizes them for you in a coherant and logical fashion.",
-      badge: null
+      badge: "WORKING ON IT"
     },
-    {
-      icon: Palette,
-      title: "Automated Portfolio Builder",
-      description: "With one click of a button, you can generate multiple custom portfolio websites for projects you have selected to showcase. Just input a moodboard, style preferences, and custom inputs to create your own portfolio.",
-      badge: "NEW"
-    },
-    {
-      icon: RefreshCw,
-      title: "Portfolio Upkeeper",
-      description: "Our portfolio website builder always keeps your portfolio up to date when you add finishe projects to the PRM. We do all the updating and sorting in the background whilst you focus on creating.",
-      badge: null
-    },
-    {
-      icon: Briefcase,
-      title: "Career Opportunities",
-      description: "We're also building a job-hub specifically for creative work opportunities, because we believe that a good portfolio websites gets you a long way, and we want you to get paid for doing what you love.",
-      badge: null
-    },
+    
   ];
 
   return (
@@ -59,8 +80,7 @@ const Features = () => {
             Powerful Features
           </h1>
           <p className="text-xl text-primary opacity-60 max-w-2xl mx-auto">
-            Discover the comprehensive suite of tools designed to transform your productivity 
-            and streamline your workflow like never before.
+            Here's our comprehensive suite of AI-powered tools designed to help you manage projects and create professional, unique portfolio websites in minutes.
           </p>
         </div>
 

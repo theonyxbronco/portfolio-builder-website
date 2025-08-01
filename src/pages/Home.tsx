@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import WaitlistForm from "@/components/WaitlistForm";
-import { ArrowRight, FolderOpen, Palette, Edit3 } from "lucide-react";
+import { ArrowRight, FolderOpen, Palette, Edit3, CheckCircle } from "lucide-react";
 import { useParallax } from "@/hooks/use-parallax";
 
 const Home = () => {
@@ -25,6 +25,21 @@ const Home = () => {
           <p className="text-xl md:text-2xl font-medium text-primary opacity-80 mb-8 max-w-3xl mx-auto">
             Never worry about a missing portfolio. We make yours in minutes.
           </p>
+          {/* Social Proof */}
+          <div className="flex justify-center items-center gap-6 mb-8 text-sm text-primary opacity-60">
+            <div className="flex items-center gap-2">
+              <CheckCircle className="w-4 h-4 text-green-600" />
+              <span>No templates</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <CheckCircle className="w-4 h-4 text-green-600" />
+              <span>Moodboard driven</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <CheckCircle className="w-4 h-4 text-green-600" />
+              <span>5-minute deploy</span>
+            </div>
+          </div>
           <Button variant="default" size="lg" className="text-xl px-10 py-7">
             Try for free <ArrowRight className="ml-2" />
           </Button>

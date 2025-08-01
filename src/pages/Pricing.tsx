@@ -11,47 +11,45 @@ const Pricing = () => {
       name: "Starter",
       price: "0",
       period: "month",
-      description: "Perfect for individuals getting started with productivity optimization",
+      description: "Perfect for individuals who are getting to know the product and service",
       features: [
         "Up to 3 projects",
+        "1 portfolio website",
+        "Limited edit features",
         "Basic analytics",
         "Email support",
-        "2GB storage",
-        "Mobile app access",
-        "Basic integrations"
+        "2GB file storage",
       ],
       isPopular: false
     },
     {
       name: "Student",
-      price: "6",
+      price: "7",
       period: "month",
-      description: "Ideal for students growing their presense",
+      description: "Ideal for students growing their presense, or building their portfolio",
       features: [
-        "Unlimited projects",
-        "Advanced analytics",
+        "Up to 20 projects",
+        "3 portfolio website",
+        "Edit features",
+        "Analytics",
         "Priority support",
-        "25GB storage",
-        "Team collaboration",
-        "All integrations",
-        "Custom workflows",
-        "API access"
+        "25GB file storage",
       ],
       isPopular: true
     },
     {
-      name: "Pro",
-      price: "15",
+      name: "PRO",
+      price: "12",
       period: "month",
       description: "Complete solution for professional creatives, or those who value organization",
       features: [
-        "Everything in Student",
-        "Dedicated support",
-        "Unlimited storage",
-        "Custom branding",
-        "SSO integration",
-        "Advanced reporting",
-        "On-premise deployment",
+        "Unlimited projects",
+        "10 portfolio website",
+        "Edit features",
+        "Analytics",
+        "Priority support",
+        "25GB file storage",
+        "On-premise custom deployment",
         "24/7 phone support"
       ],
       isPopular: false
@@ -95,19 +93,19 @@ const Pricing = () => {
                 </div>
               )}
               
-              <CardHeader className="text-center p-8">
-                <h3 className="text-2xl font-bold mb-2">{plan.name}</h3>
+              <CardHeader className="text-center p-8 mb-2">
+                <h3 className="text-2xl font-bold mb-1">{plan.name}</h3>
                 <div className="mb-4">
                   {plan.price === "0" ? (
                     <span className="text-4xl font-bold">Free</span>
                   ) : (
                     <>
                       <span className="text-4xl font-bold">€{plan.price}</span>
-                      <span className="text-muted-foreground">/{plan.period}</span>
+                      <span className="text-primary opacity-50">/{plan.period}</span>
                     </>
                   )}
                 </div>
-                <p className="text-muted-foreground">{plan.description}</p>
+                <p className="text-primary opacity-60 pt-5">{plan.description}</p>
               </CardHeader>
               
               <CardContent className="p-8 pt-0 flex flex-col justify-between flex-1 h-[400px]">
@@ -158,6 +156,13 @@ const Pricing = () => {
               <CardContent className="p-6">
                 <h3 className="font-semibold mb-2">What payment methods do you accept?</h3>
                 <p className="text-muted-foreground">We accept all major credit cards, PayPal, and bank transfers for annual plans.</p>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-gradient-card border-0 shadow-elegant">
+              <CardContent className="p-6">
+                <h3 className="font-semibold mb-2">Underwhelmed?</h3>
+                <p className="text-muted-foreground">We're just getting started. We're building this better every day, every minute, every second.</p>
               </CardContent>
             </Card>
           </div>
